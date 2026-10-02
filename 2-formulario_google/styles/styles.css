@@ -1,0 +1,39 @@
+.hide {
+    display: none;
+}
+
+h2{
+    margin-right: 540px;
+}
+
+section {
+    border: solid;
+    margin: 350px;
+    text-align: center;
+    background-color:white;
+    border-radius: 20px;
+
+    
+}
+
+input {
+    margin-right: -300px;
+    width:300px;
+    background-size: cover;
+    border-radius: 5px;
+    height: 30px;
+}
+
+body {
+    background-color: aliceblue; 
+}
+
+#bttnextInicio, #bttnextPassword {
+    color: white;
+    background-color: dodgerblue;
+    margin-right: -530px;
+    border-radius: 15px;
+    width: 100px;
+    height: 30px;
+    
+}

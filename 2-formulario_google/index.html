@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Login</title>
 </head>
 <body>
+    <section id="inicioID">
+        <h2>Sign In</h2>
+        <form id="inicioSesionUsuario">
+            <input id="emailUsuario" type="email" placeholder="Email">
+            <p></p>
+            <button id="bttnextInicio">Next</button>
+        </form>
+    </section>
+
+    <section id="passwordID" class="hide">
+        <h2>Password</h2>
+        <form id="passwordUsuario">
+            <input id="passwordUsuario" type="password" placeholder="Password">
+            <p></p>
+            <button id="bttnextPassword">Next</button>          
+        </form>
+    </section>
     
+    <section id="finalFase" class="hide">
+        <h2>FIN</h2>
+    </section>
+    <script src="scripts/script.js"></script>
+
 </body>
 </html>
