@@ -31,7 +31,7 @@ document.querySelectorAll();
 // recoge todos los elementos
 */
 
-
+    /*
 let formulario = document.getElementById("formulario");
 let nombre = document.getElementById("name");
 let apellido = document.getElementById("surname");
@@ -56,3 +56,36 @@ console.log(email);
 console.log(mensaje);
 console.log(submit);
 console.log(reset);
+*/
+
+// Seleccionar el formulario
+    
+    const form = document.getElementById('contactForm');
+    const body = document.getElementById('body');
+    const data = document.getElementById('datos');
+
+
+    // Agregar un listener para el evento de envío
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+
+        var name = document.getElementById('name').value;
+        var surname = document.getElementById('surname').value;
+        var sex = document.querySelector('input[name="sex"]:checked').value;
+        var email = document.getElementById('email').value;
+        var nick = document.getElementById('nick').value;
+        var comment = document.getElementById('comment').value;
+
+
+        form.classList.add('active')
+
+
+        data.innerHTML = `Nombre: ${name} <br>
+                          Apellidos: ${surname} <br>
+                          Sexo: ${sex} <br>
+                          Email: ${email} <br>
+                          Nick: ${nick} <br>
+                          Comentario: ${comment} <br>
+                          <strong>Gracias por enviar tus datos a Israel</strong>`;
+    });
