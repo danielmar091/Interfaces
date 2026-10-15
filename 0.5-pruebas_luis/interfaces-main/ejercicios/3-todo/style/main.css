@@ -1,0 +1,344 @@
+/* =========================================
+   TODO LIST
+   ========================================= */
+
+:root {
+    /* Colors */
+    --color-background: #f4f6f8;
+    --color-surface: #ffffff;
+    --color-primary: #6366f1;
+    --color-primary-hover: #4f46e5;
+    --color-text: #1f2937;
+    --color-text-secondary: #6b7280;
+    --color-border: #e5e7eb;
+    --color-danger: #ef4444;
+    --color-danger-hover: #dc2626;
+
+    /* Typography */
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+
+    --font-size-title: 2.5rem;
+    --font-size-normal: 1rem;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+
+    /* Borders */
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+
+    /* Effects */
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --transition: 0.2s ease;
+}
+
+/* =========================================
+   DARK MODE
+   ========================================= */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: #111827;
+        --color-surface: #1f2937;
+        --color-primary: #818cf8;
+        --color-primary-hover: #6366f1;
+        --color-text: #f9fafb;
+        --color-text-secondary: #9ca3af;
+        --color-border: #374151;
+        --color-danger: #f87171;
+        --color-danger-hover: #ef4444;
+
+        --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* =========================================
+   RESET
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: var(--spacing-lg);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--color-background);
+    color: var(--color-text);
+
+    font-family: var(--font-family);
+    font-size: var(--font-size-normal);
+
+    transition:
+        background-color var(--transition),
+        color var(--transition);
+}
+
+/* =========================================
+   TODO APP
+   ========================================= */
+
+body {
+    flex-direction: column;
+}
+
+h1,
+#task-new-title,
+#task-new-send,
+#tasks-list {
+    width: min(100%, 600px);
+}
+
+/* =========================================
+   TITLE
+   ========================================= */
+
+h1 {
+    margin: 0 0 var(--spacing-lg);
+
+    color: var(--color-text);
+
+    font-size: var(--font-size-title);
+    font-weight: 800;
+    line-height: 1.1;
+
+    text-align: center;
+    text-transform: capitalize;
+}
+
+/* =========================================
+   INPUT
+   ========================================= */
+
+#task-new-title {
+    display: block;
+
+    padding: var(--spacing-md);
+
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    outline: none;
+
+    background-color: var(--color-surface);
+    color: var(--color-text);
+
+    font: inherit;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background-color var(--transition);
+}
+
+#task-new-title::placeholder {
+    color: var(--color-text-secondary);
+}
+
+#task-new-title:focus {
+    border-color: var(--color-primary);
+
+    box-shadow: 0 0 0 4px color-mix(in srgb,
+            var(--color-primary) 20%,
+            transparent);
+}
+
+/* =========================================
+   SEND BUTTON
+   ========================================= */
+
+#task-new-send {
+    display: block;
+
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-md);
+
+    border: none;
+    border-radius: var(--radius-md);
+
+    background-color: var(--color-primary);
+    color: #ffffff;
+
+    font: inherit;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+#task-new-send:hover {
+    background-color: var(--color-primary-hover);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.25);
+}
+
+#task-new-send:active {
+    transform: translateY(0);
+}
+
+#task-new-send:focus-visible {
+    outline: 3px solid color-mix(in srgb,
+            var(--color-primary) 40%,
+            transparent);
+
+    outline-offset: 2px;
+}
+
+/* =========================================
+   TASKS
+   ========================================= */
+
+#tasks-list {
+    margin-top: var(--spacing-xl);
+}
+
+/* Cada tarea */
+
+#tasks-list p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+
+    margin: 0 0 var(--spacing-sm);
+    padding: var(--spacing-md);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    background-color: var(--color-surface);
+    color: var(--color-text);
+
+    box-shadow: var(--shadow-card);
+
+    word-break: break-word;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        background-color var(--transition);
+}
+
+#tasks-list p:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   DELETE BUTTON
+   ========================================= */
+
+#tasks-list span {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2rem;
+    height: 2rem;
+
+    border-radius: 50%;
+
+    color: var(--color-danger);
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        transform var(--transition);
+}
+
+#tasks-list span:hover {
+    background-color: color-mix(in srgb,
+            var(--color-danger) 12%,
+            transparent);
+
+    color: var(--color-danger-hover);
+
+    transform: scale(1.1);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 600px) {
+    body {
+        padding: var(--spacing-md);
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    #task-new-title,
+    #task-new-send,
+    #tasks-list {
+        width: 100%;
+    }
+
+    #tasks-list {
+        margin-top: var(--spacing-lg);
+    }
+
+    #tasks-list p {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+}
+
+/* =========================================
+   VERY SMALL SCREENS
+   ========================================= */
+
+@media (max-width: 360px) {
+    body {
+        padding: var(--spacing-sm);
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    #task-new-title,
+    #task-new-send {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}
