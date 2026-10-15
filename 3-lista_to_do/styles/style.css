@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+    border: solid;
+    margin: 300px;
+    background-color:white;
+    border-radius: 20px;
+    margin-left: 800px;
+    margin-right: 800px;
+}
+
+li {
+    margin-bottom: 10px;
+}
